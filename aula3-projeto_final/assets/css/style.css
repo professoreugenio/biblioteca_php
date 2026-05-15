@@ -1,0 +1,20 @@
+body {
+    background-color: #f4f6f9;
+}
+
+.card {
+    border-radius: 14px;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    transition: 0.3s ease;
+}
+
+.navbar-brand {
+    letter-spacing: 0.5px;
+}
+
+.table th {
+    white-space: nowrap;
+}
