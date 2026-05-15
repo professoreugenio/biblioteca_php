@@ -14,7 +14,7 @@ require_once __DIR__ . '/config/caminhos.php';
 <body>
     <header>
         <!-- aqui nav -->
-        <?php require_once INCLUDESHOME_ROOT . '/nav.php'; ?>
+        <?php require_once CONFIGHOME_ROOT . '/nav.php'; ?>
     </header>
 
 
@@ -28,7 +28,6 @@ require_once __DIR__ . '/config/caminhos.php';
                     <h2 class="fw-bold">Produtos</h2>
                     <p class="text-muted">Exemplo de cards para apresentar produtos de forma organizada.</p>
                 </div>
-
 
                 <div class="row g-4">
 
