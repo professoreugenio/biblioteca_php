@@ -1,6 +1,16 @@
 <?php
 require_once __DIR__ . '/config/caminhos.php';
 require_once CONFIG_ROOT . '/sessao.php';
+
+
+?>
+<?php
+unset($_SESSION['usuario_logado']);
+unset($_SESSION['idusuario']);
+unset($_SESSION['nome']);
+
+HEADER('Location: index.php');
+exit();
 ?>
 <!doctype html>
 <html lang="pt-br" data-bs-theme="light">
@@ -49,15 +59,15 @@ require_once CONFIG_ROOT . '/sessao.php';
 <body>
 
     <!-- Navbar -->
-<?php
-require_once INCLUDESDMIN_ROOT . '/nav.php';
-?>
+    <?php
+    require_once INCLUDESDMIN_ROOT . '/nav.php';
+    ?>
 
     <!-- Conteúdo principal -->
     <main class="main-admin">
         <div class="container-fluid px-lg-4">
 
-            
+
 
             <!-- Cards resumo -->
             <section class="row g-4 mb-4">
@@ -67,34 +77,34 @@ require_once INCLUDESDMIN_ROOT . '/nav.php';
                         <div class="card-body p-4">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
-                                    <p class="texto-suave mb-2">Livros cadastrados</p>
-                                    <div class="numero-card">248</div>
+
+                                    <div class="numero-card">Sair</div>
                                 </div>
                                 <div class="icon-card bg-livros">
-                                    <i class="bi bi-journal-bookmark"></i>
+                                    <i class="bi bi-box-arrow-right"></i>
                                 </div>
                             </div>
                             <p class="texto-suave mt-3 mb-0">
                                 <i class="bi bi-arrow-up-short text-success"></i>
-                                12 novos este mês
+                                <!--  -->
                             </p>
                         </div>
                     </div>
                 </div>
 
-                
-                
 
-               
+
+
+
 
             </section>
 
-            
+
 
             <!-- footer -->
-             <?php
-require_once INCLUDESDMIN_ROOT . '/nav.php';
-?>
+            <?php
+            require_once INCLUDESDMIN_ROOT . '/nav.php';
+            ?>
 
         </div>
     </main>

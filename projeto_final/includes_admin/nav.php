@@ -6,6 +6,14 @@ $lk=$_GET['lk'];
 
 ?>
 
+<?php
+if (empty($_SESSION['usuario_logado'])) {
+    header('Location: index.php');
+    exit;
+}
+
+?>
+
 <!-- <?=($lk==1)?'active':''?> -->
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-admin fixed-top">

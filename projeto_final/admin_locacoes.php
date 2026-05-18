@@ -69,7 +69,7 @@ require_once CONFIG_ROOT . '/sessao.php';
 
 
                 <div class="d-flex flex-wrap gap-2 position-relative" style="z-index: 2;">
-                    <a href="admin_livros.php?lk=2" class="btn btn-light fw-bold rounded-pill px-4">
+                    <a href="admin_locacoesform.php?lk=4" class="btn btn-light fw-bold rounded-pill px-4">
                         <i class="bi bi-plus-circle me-1"></i>
                         Nova Locação
                     </a>

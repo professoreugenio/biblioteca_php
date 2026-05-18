@@ -67,19 +67,12 @@ require_once INCLUDESDMIN_ROOT . '/nav.php';
                 
 
                 <div class="d-flex flex-wrap gap-2 position-relative" style="z-index: 2;">
-                    <a href="admin_cadastroUsuarios.php?lk=3" class="btn btn-light fw-bold rounded-pill px-4">
+                    <a href="admin_livros.php?lk=2" class="btn btn-light fw-bold rounded-pill px-4">
                         <i class="bi bi-plus-circle me-1"></i>
                         Lívros
                     </a>
 
-                    <a href="admin_locacoes.php?lk=4" class="btn btn-outline-light fw-bold rounded-pill px-4">
-                        <i class="bi bi-arrow-left-right me-1"></i>
-                       Locações
-                    </a>
-                    <a href="admin_usuarios.php?lk=3" class="btn btn-outline-light fw-bold rounded-pill px-4">
-                        <i class="bi bi-arrow-left-right me-1"></i>
-                       Usuários
-                    </a>
+                    
                 </div>
             </section>
 
