@@ -490,7 +490,9 @@ Os arquivos utilizados na Home:
 includes/Nav.php
 sections/SectionPublicacoesHome.php
 includes/Footer.php
-20. Página de publicações por categoria
+
+
+### 20. Página de publicações por categoria
 
 A página locacoes.php exibe publicações organizadas por categoria.
 
@@ -509,7 +511,8 @@ $sql = "SELECT idpublicacao, titulo, categoria, resumo, imagem, link_detalhes, d
         WHERE status = 'ativo'
         AND categoria = :categoria
         ORDER BY data_publicacao DESC, idpublicacao DESC";
-21. Formulários modulares
+
+### 21. Formulários modulares
 
 Os formulários foram separados na pasta forms.
 
@@ -525,7 +528,7 @@ require_once FORMS_ROOT . '/FormLivro.php';
 
 Essa organização evita repetição de código e facilita manutenção.
 
-22. Logout administrativo
+### 22. Logout administrativo
 
 O arquivo admin_logout.php encerra a sessão do administrador.
 
@@ -544,7 +547,7 @@ session_regenerate_id(true);
 
 header('Location: admin_login.php');
 exit;
-23. Padrão de segurança aplicado
+### 23. Padrão de segurança aplicado
 
 O projeto utiliza os seguintes cuidados:
 
