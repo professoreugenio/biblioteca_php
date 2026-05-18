@@ -64,124 +64,36 @@ require_once INCLUDESDMIN_ROOT . '/nav.php';
                     Painel administrativo
                 </span>
 
-                <h1>Dashboard da Locadora de Livros</h1>
-
-                <p class="mb-4">
-                    Gerencie livros cadastrados, usuários, locações ativas, atrasos e movimentações recentes em um painel
-                    moderno, simples e organizado.
-                </p>
+                
 
                 <div class="d-flex flex-wrap gap-2 position-relative" style="z-index: 2;">
-                    <a href="livros.php" class="btn btn-light fw-bold rounded-pill px-4">
+                    <a href="admin_cadastroUsuarios.php?lk=3" class="btn btn-light fw-bold rounded-pill px-4">
                         <i class="bi bi-plus-circle me-1"></i>
-                        Novo livro
+                        Novo Usuário
                     </a>
 
-                    <a href="locações.php" class="btn btn-outline-light fw-bold rounded-pill px-4">
+                    <a href="admin_locacoes.php" class="btn btn-outline-light fw-bold rounded-pill px-4">
                         <i class="bi bi-arrow-left-right me-1"></i>
                         Nova locação
                     </a>
                 </div>
             </section>
 
-            <!-- Cards resumo -->
-            <section class="row g-4 mb-4">
-
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="card card-dashboard h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="texto-suave mb-2">Livros cadastrados</p>
-                                    <div class="numero-card">248</div>
-                                </div>
-                                <div class="icon-card bg-livros">
-                                    <i class="bi bi-journal-bookmark"></i>
-                                </div>
-                            </div>
-                            <p class="texto-suave mt-3 mb-0">
-                                <i class="bi bi-arrow-up-short text-success"></i>
-                                12 novos este mês
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="card card-dashboard h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="texto-suave mb-2">Usuários ativos</p>
-                                    <div class="numero-card">86</div>
-                                </div>
-                                <div class="icon-card bg-usuarios">
-                                    <i class="bi bi-people"></i>
-                                </div>
-                            </div>
-                            <p class="texto-suave mt-3 mb-0">
-                                <i class="bi bi-person-check text-primary"></i>
-                                Leitores cadastrados
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="card card-dashboard h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="texto-suave mb-2">Locações ativas</p>
-                                    <div class="numero-card">37</div>
-                                </div>
-                                <div class="icon-card bg-locacoes">
-                                    <i class="bi bi-arrow-left-right"></i>
-                                </div>
-                            </div>
-                            <p class="texto-suave mt-3 mb-0">
-                                <i class="bi bi-clock-history text-warning"></i>
-                                Em andamento
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="card card-dashboard h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="texto-suave mb-2">Atrasos</p>
-                                    <div class="numero-card">05</div>
-                                </div>
-                                <div class="icon-card bg-atrasos">
-                                    <i class="bi bi-exclamation-triangle"></i>
-                                </div>
-                            </div>
-                            <p class="texto-suave mt-3 mb-0">
-                                <i class="bi bi-bell text-danger"></i>
-                                Requer atenção
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
+            
 
             <section class="row g-4">
 
                 <!-- Tabela -->
-                <div class="col-12 col-xl-8">
+                <div class="col-12 col-xl-12">
                     <div class="table-card">
                         <div class="p-4 pb-0">
                             <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
                                 <div class="section-title mb-0">
                                     <i class="bi bi-clock-history text-success me-1"></i>
-                                    Locações recentes
+                                    Usuários Cadastrados
                                 </div>
 
-                                <a href="locações.php" class="btn btn-sm btn-outline-success rounded-pill fw-bold">
+                                <a href="admin_locacoes.php" class="btn btn-sm btn-outline-success rounded-pill fw-bold">
                                     Ver todas
                                 </a>
                             </div>
@@ -265,47 +177,7 @@ require_once INCLUDESDMIN_ROOT . '/nav.php';
                     </div>
                 </div>
 
-                <!-- Ações rápidas -->
-                <div class="col-12 col-xl-4">
-                    <div class="quick-card">
-                        <div class="section-title">
-                            <i class="bi bi-lightning-charge text-warning me-1"></i>
-                            Ações rápidas
-                        </div>
-
-                        <a href="livros.php" class="quick-link">
-                            <span>
-                                <i class="bi bi-journal-plus me-2 text-success"></i>
-                                Gerenciar livros
-                            </span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-
-                        <a href="usuarios.php" class="quick-link">
-                            <span>
-                                <i class="bi bi-person-plus me-2 text-primary"></i>
-                                Gerenciar usuários
-                            </span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-
-                        <a href="locações.php" class="quick-link">
-                            <span>
-                                <i class="bi bi-arrow-left-right me-2 text-warning"></i>
-                                Gerenciar locações
-                            </span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-
-                        <a href="sair.php" class="quick-link">
-                            <span>
-                                <i class="bi bi-box-arrow-right me-2 text-danger"></i>
-                                Sair do painel
-                            </span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
+                
 
             </section>
 

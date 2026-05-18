@@ -61,7 +61,7 @@ body {
 .nav-link:hover,
 .nav-link.active {
   color: #fff !important;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(234, 229, 160, 0.629);
 }
 
 .foto-admin {

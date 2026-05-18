@@ -72,12 +72,12 @@ require_once INCLUDESDMIN_ROOT . '/nav.php';
                 </p>
 
                 <div class="d-flex flex-wrap gap-2 position-relative" style="z-index: 2;">
-                    <a href="livros.php" class="btn btn-light fw-bold rounded-pill px-4">
+                    <a href="admin_livrosform.php?lk=2" class="btn btn-light fw-bold rounded-pill px-4">
                         <i class="bi bi-plus-circle me-1"></i>
                         Novo livro
                     </a>
 
-                    <a href="locações.php" class="btn btn-outline-light fw-bold rounded-pill px-4">
+                    <a href="admin_locacoes.php?lk=3" class="btn btn-outline-light fw-bold rounded-pill px-4">
                         <i class="bi bi-arrow-left-right me-1"></i>
                         Nova locação
                     </a>
@@ -181,7 +181,7 @@ require_once INCLUDESDMIN_ROOT . '/nav.php';
                                     Locações recentes
                                 </div>
 
-                                <a href="locações.php" class="btn btn-sm btn-outline-success rounded-pill fw-bold">
+                                <a href="admin_locacoes.php" class="btn btn-sm btn-outline-success rounded-pill fw-bold">
                                     Ver todas
                                 </a>
                             </div>
@@ -289,7 +289,7 @@ require_once INCLUDESDMIN_ROOT . '/nav.php';
                             <i class="bi bi-chevron-right"></i>
                         </a>
 
-                        <a href="locações.php" class="quick-link">
+                        <a href="admin_locacoes.php" class="quick-link">
                             <span>
                                 <i class="bi bi-arrow-left-right me-2 text-warning"></i>
                                 Gerenciar locações

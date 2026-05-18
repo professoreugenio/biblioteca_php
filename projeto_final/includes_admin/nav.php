@@ -4,9 +4,10 @@ if(!empty($_GET['lk'])){
 $lk=$_GET['lk'];
 }
 
+
 ?>
 
-<?=($lk==1)?'active':''?>
+<!-- <?=($lk==1)?'active':''?> -->
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-admin fixed-top">
         <div class="container-fluid px-lg-4">

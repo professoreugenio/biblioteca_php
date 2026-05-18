@@ -57,39 +57,40 @@ require_once INCLUDESDMIN_ROOT . '/nav.php';
     <main class="main-admin">
         <div class="container-fluid px-lg-4">
 
-            
+            <!-- Hero -->
+            <section class="hero-admin mb-4">
+                <span class="badge-admin mb-3">
+                    <i class="bi bi-shield-check"></i>
+                    Painel administrativo
+                </span>
 
-            <!-- Cards resumo -->
-            <section class="row g-4 mb-4">
+                
 
-                <div class="col-12 col-sm-12 col-xl-12">
-                    <div class="card card-dashboard h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="texto-suave mb-2">Livros cadastrados</p>
-                                    <div class="numero-card">248</div>
-                                </div>
-                                <div class="icon-card bg-livros">
-                                    <i class="bi bi-journal-bookmark"></i>
-                                </div>
-                            </div>
-                            <p class="texto-suave mt-3 mb-0">
-                                <i class="bi bi-arrow-up-short text-success"></i>
-                                12 novos este mês
-                            </p>
-                        </div>
-                    </div>
+                <div class="d-flex flex-wrap gap-2 position-relative" style="z-index: 2;">
+                    <a href="admin_cadastroUsuarios.php?lk=3" class="btn btn-light fw-bold rounded-pill px-4">
+                        <i class="bi bi-plus-circle me-1"></i>
+                        Novo Usuário
+                    </a>
+
+                    <a href="admin_locacoes.php?lk=4" class="btn btn-outline-light fw-bold rounded-pill px-4">
+                        <i class="bi bi-arrow-left-right me-1"></i>
+                        Nova locação
+                    </a>
                 </div>
-
-                
-                
-
-               
-
             </section>
 
             
+
+            <section class="row g-4">
+
+                <!-- Tabela -->
+                <div class="col-12 col-xl-12">
+                    <?php require_once CONFIGFORM_ROOT .'/formusuario.php'; ?>
+                </div>
+
+                
+
+            </section>
 
             <!-- footer -->
              <?php
