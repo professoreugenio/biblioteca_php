@@ -255,7 +255,9 @@ class Config
 Uso da conexão nas páginas:
 
 $con = Config::connect();
-9. Configuração de sessão
+
+###9. Configuração de sessão
+
 
 O arquivo config/sessao.php inicia e configura a sessão do sistema.
 
@@ -312,7 +314,9 @@ function limitarTexto($texto, $limite = 120)
 
     return mb_substr($texto, 0, $limite, 'UTF-8') . '...';
 }
-11. Cadastro do administrador inicial
+
+### 11. Cadastro do administrador inicial
+
 
 O arquivo admin_criar.php cria o primeiro administrador do sistema.
 
@@ -327,7 +331,9 @@ Senha: 123456
 
 Após criar o administrador, o arquivo admin_criar.php deve ser removido ou bloqueado por segurança.
 
-12. Login administrativo
+
+### 12. Login administrativo
+
 
 A página admin_login.php realiza o login do administrador.
 
@@ -345,7 +351,10 @@ Redirecionar para admin_painel.php.
 Exemplo de validação de senha:
 
 password_verify($senha, $usuario['senha'])
-13. Proteção de páginas administrativas
+
+
+###13. Proteção de páginas administrativas
+
 
 O arquivo includes/verifica_admin.php protege as páginas do painel administrativo.
 
@@ -362,7 +371,9 @@ if (($_SESSION['admin_tipo'] ?? '') !== 'admin') {
     header('Location: admin_login.php');
     exit;
 }
-14. Painel administrativo
+
+### 14. Painel administrativo
+
 
 A página admin_painel.php exibe indicadores gerais do sistema.
 
@@ -379,6 +390,7 @@ Locações atrasadas;
 As consultas usam SELECT COUNT(*).
 
 Exemplo:
+
 
 $stmt = $con->query("SELECT COUNT(*) AS total FROM livros");
 $row = $stmt->fetch();
@@ -404,7 +416,11 @@ $sql = "INSERT INTO livros
         (titulo, autor, categoria, ano_publicacao, quantidade, status, descricao, imagem, data_cadastro, hora_cadastro)
         VALUES
         (:titulo, :autor, :categoria, :ano_publicacao, :quantidade, :status, :descricao, :imagem, CURDATE(), CURTIME())";
+
+
 16. Upload de imagem do livro
+
+
 
 O upload de imagem usa:
 
