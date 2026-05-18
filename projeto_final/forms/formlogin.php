@@ -51,7 +51,7 @@ defined('BASEPATH') or exit('Acesso não permitido');
                 <p class="text-muted mb-0">Acesse o painel do sistema</p>
             </div>
 
-            <form method="POST" action="" class="needs-validation">
+            <form method="POST" action="login_usuario.php">
 
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail</label>
@@ -88,7 +88,7 @@ defined('BASEPATH') or exit('Acesso não permitido');
                         >
 
                         <button 
-                            type="button" name="btloginusuario" value="<?=time();?>"
+                            type="button" 
                             class="btn btn-outline-secondary btn-toggle-senha" 
                             id="btnToggleSenha"
                         >
@@ -97,7 +97,7 @@ defined('BASEPATH') or exit('Acesso não permitido');
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">
+                <button type="submit" name="btloginusuario" value="<?=time();?>" class="btn btn-primary w-100">
                     <i class="bi bi-box-arrow-in-right me-1"></i>
                     Entrar
                 </button>

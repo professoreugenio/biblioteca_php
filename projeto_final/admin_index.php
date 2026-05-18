@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/config/caminhos.php';
+require_once CONFIG_ROOT . '/sessao.php';
+?>
 <!doctype html>
 <html lang="pt-br" data-bs-theme="light">
 
