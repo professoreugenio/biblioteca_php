@@ -1,7 +1,8 @@
-# biblioteca_php
-# Sistema de Locação de Livros — biblioteca_php
+# 📚 Sistema de Locação de Livros — `biblioteca_php`
 
 Sistema web desenvolvido em **PHP com MySQL**, utilizando **PDO**, **Bootstrap**, **SESSION**, autenticação de administrador, cadastro de livros, upload de imagem, listagem por categoria e estrutura organizada por módulos.
+
+---
 
 ## 📌 Objetivo do projeto
 
@@ -37,7 +38,7 @@ O objetivo deste projeto é criar uma aplicação simples para gerenciamento de 
 
 ## 📁 Estrutura principal do projeto
 
-
+```text
 biblioteca_php/
 │
 ├── index.php
@@ -93,34 +94,59 @@ biblioteca_php/
     │   └── app.js
     │
     └── img/
+```
 
-###⚙️ Etapas de implementação
+---
 
-1. Configuração do ambiente
+# ⚙️ Etapas de implementação
 
-Para executar o projeto localmente, foi utilizado o XAMPP.
+## 1. Configuração do ambiente
 
-Passos:
-Instalar o XAMPP.
-Iniciar os serviços:
-Apache;
-MySQL.
-Criar a pasta do projeto dentro de:
+Para executar o projeto localmente, foi utilizado o **XAMPP**.
+
+### Passos
+
+1. Instalar o XAMPP.
+2. Iniciar os serviços:
+   - Apache;
+   - MySQL.
+3. Criar a pasta do projeto dentro de:
+
+```text
 C:\xampp\htdocs\biblioteca_php
-Acessar o projeto pelo navegador:
+```
+
+4. Acessar o projeto pelo navegador:
+
+```text
 http://localhost/biblioteca_php
-2. Criação do banco de dados
+```
 
-O banco de dados foi criado no phpMyAdmin.
+---
 
-Nome do banco:
+## 2. Criação do banco de dados
+
+O banco de dados foi criado no **phpMyAdmin**.
+
+### Nome do banco
+
+```sql
 biblioteca_db
-Acesso ao phpMyAdmin:
+```
+
+### Acesso ao phpMyAdmin
+
+```text
 http://localhost/phpmyadmin
-3. Criação da tabela de usuários
+```
 
-A tabela usuarios armazena os usuários do sistema, incluindo administradores e alunos.
+---
 
+## 3. Criação da tabela de usuários
+
+A tabela `usuarios` armazena os usuários do sistema, incluindo administradores e alunos.
+
+```sql
 CREATE TABLE IF NOT EXISTS usuarios (
     idusuario INT(11) NOT NULL AUTO_INCREMENT,
     nome VARCHAR(150) NOT NULL,
@@ -133,10 +159,15 @@ CREATE TABLE IF NOT EXISTS usuarios (
     PRIMARY KEY (idusuario),
     UNIQUE KEY unique_email (email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-4. Criação da tabela de livros
+```
 
-A tabela livros armazena os dados dos livros cadastrados no sistema.
+---
 
+## 4. Criação da tabela de livros
+
+A tabela `livros` armazena os dados dos livros cadastrados no sistema.
+
+```sql
 CREATE TABLE IF NOT EXISTS livros (
     idlivro INT(11) NOT NULL AUTO_INCREMENT,
     titulo VARCHAR(150) NOT NULL,
@@ -151,10 +182,15 @@ CREATE TABLE IF NOT EXISTS livros (
     hora_cadastro TIME NOT NULL,
     PRIMARY KEY (idlivro)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-5. Criação da tabela de locações
+```
 
-A tabela locacoes será utilizada para registrar reservas, empréstimos e devoluções de livros.
+---
 
+## 5. Criação da tabela de locações
+
+A tabela `locacoes` será utilizada para registrar reservas, empréstimos e devoluções de livros.
+
+```sql
 CREATE TABLE IF NOT EXISTS locacoes (
     idlocacao INT(11) NOT NULL AUTO_INCREMENT,
     idlivro INT(11) NOT NULL,
@@ -169,10 +205,15 @@ CREATE TABLE IF NOT EXISTS locacoes (
     hora_cadastro TIME NOT NULL,
     PRIMARY KEY (idlocacao)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-6. Criação da tabela de publicações
+```
 
-A tabela publicacoes foi criada para exibir conteúdos na página inicial e na página de publicações por categoria.
+---
 
+## 6. Criação da tabela de publicações
+
+A tabela `publicacoes` foi criada para exibir conteúdos na página inicial e na página de publicações por categoria.
+
+```sql
 CREATE TABLE IF NOT EXISTS publicacoes (
     idpublicacao INT(11) NOT NULL AUTO_INCREMENT,
     titulo VARCHAR(150) NOT NULL,
@@ -185,11 +226,15 @@ CREATE TABLE IF NOT EXISTS publicacoes (
     hora_publicacao TIME NOT NULL,
     PRIMARY KEY (idpublicacao)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+```
 
-### 7. Arquivo de caminhos
+---
 
-O arquivo config/caminhos.php centraliza os caminhos principais do sistema.
+## 7. Arquivo de caminhos
 
+O arquivo `config/caminhos.php` centraliza os caminhos principais do sistema.
+
+```php
 <?php
 
 declare(strict_types=1);
@@ -209,10 +254,15 @@ define('UPLOADS_ROOT', PUBLIC_ROOT . '/uploads');
 define('UPLOADS_URL', 'uploads');
 
 define('ASSETS_URL', '/biblioteca_php/assets');
-8. Conexão com banco de dados
+```
 
-A conexão foi criada com PDO no arquivo config/class.conexao.php.
+---
 
+## 8. Conexão com banco de dados
+
+A conexão foi criada com PDO no arquivo `config/class.conexao.php`.
+
+```php
 <?php
 
 defined('BASEPATH') or exit('Acesso não permitido');
@@ -251,16 +301,21 @@ class Config
         }
     }
 }
+```
 
 Uso da conexão nas páginas:
 
+```php
 $con = Config::connect();
+```
 
-###9. Configuração de sessão
+---
 
+## 9. Configuração de sessão
 
-O arquivo config/sessao.php inicia e configura a sessão do sistema.
+O arquivo `config/sessao.php` inicia e configura a sessão do sistema.
 
+```php
 <?php
 
 defined('BASEPATH') or exit('Acesso não permitido');
@@ -282,10 +337,15 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
     session_start();
 }
-10. Funções auxiliares
+```
 
-O arquivo includes/funcoes.php contém funções reutilizáveis.
+---
 
+## 10. Funções auxiliares
+
+O arquivo `includes/funcoes.php` contém funções reutilizáveis.
+
+```php
 <?php
 
 defined('BASEPATH') or exit('Acesso não permitido');
@@ -314,50 +374,59 @@ function limitarTexto($texto, $limite = 120)
 
     return mb_substr($texto, 0, $limite, 'UTF-8') . '...';
 }
+```
 
-### 11. Cadastro do administrador inicial
+---
 
+## 11. Cadastro do administrador inicial
 
-O arquivo admin_criar.php cria o primeiro administrador do sistema.
+O arquivo `admin_criar.php` cria o primeiro administrador do sistema.
 
 A senha é protegida com:
 
+```php
 password_hash($senha, PASSWORD_DEFAULT);
+```
 
-Exemplo de administrador inicial:
+### Exemplo de administrador inicial
 
+```text
 E-mail: admin@biblioteca.com
 Senha: 123456
+```
 
-Após criar o administrador, o arquivo admin_criar.php deve ser removido ou bloqueado por segurança.
+> Após criar o administrador, o arquivo `admin_criar.php` deve ser removido ou bloqueado por segurança.
 
+---
 
-### 12. Login administrativo
+## 12. Login administrativo
 
+A página `admin_login.php` realiza o login do administrador.
 
-A página admin_login.php realiza o login do administrador.
+### Principais etapas
 
-Principais etapas:
-
-Receber e-mail e senha via POST;
-Validar o e-mail;
-Buscar usuário na tabela usuarios;
-Verificar se o usuário é do tipo admin;
-Verificar se está ativo;
-Validar senha com password_verify();
-Criar variáveis de sessão;
-Redirecionar para admin_painel.php.
+1. Receber e-mail e senha via `POST`;
+2. Validar o e-mail;
+3. Buscar usuário na tabela `usuarios`;
+4. Verificar se o usuário é do tipo `admin`;
+5. Verificar se está ativo;
+6. Validar senha com `password_verify()`;
+7. Criar variáveis de sessão;
+8. Redirecionar para `admin_painel.php`.
 
 Exemplo de validação de senha:
 
-password_verify($senha, $usuario['senha'])
+```php
+password_verify($senha, $usuario['senha']);
+```
 
+---
 
-###13. Proteção de páginas administrativas
+## 13. Proteção de páginas administrativas
 
+O arquivo `includes/verifica_admin.php` protege as páginas do painel administrativo.
 
-O arquivo includes/verifica_admin.php protege as páginas do painel administrativo.
-
+```php
 <?php
 
 defined('BASEPATH') or exit('Acesso não permitido');
@@ -371,112 +440,147 @@ if (($_SESSION['admin_tipo'] ?? '') !== 'admin') {
     header('Location: admin_login.php');
     exit;
 }
+```
 
-### 14. Painel administrativo
+---
 
+## 14. Painel administrativo
 
-A página admin_painel.php exibe indicadores gerais do sistema.
+A página `admin_painel.php` exibe indicadores gerais do sistema.
 
-Indicadores exibidos:
+### Indicadores exibidos
 
-Total de livros;
-Total de usuários;
-Total de reservas;
-Livros disponíveis;
-Locações abertas;
-Locações atrasadas;
-Últimos livros cadastrados.
+- Total de livros;
+- Total de usuários;
+- Total de reservas;
+- Livros disponíveis;
+- Locações abertas;
+- Locações atrasadas;
+- Últimos livros cadastrados.
 
-As consultas usam SELECT COUNT(*).
+As consultas usam `SELECT COUNT(*)`.
 
 Exemplo:
 
-
+```php
 $stmt = $con->query("SELECT COUNT(*) AS total FROM livros");
 $row = $stmt->fetch();
+
 $totalLivros = (int) ($row['total'] ?? 0);
-15. Cadastro de livros
+```
 
-A página livros_novo.php realiza o cadastro de livros.
+---
 
-Campos principais:
+## 15. Cadastro de livros
 
-Título;
-Autor;
-Categoria;
-Ano de publicação;
-Quantidade;
-Status;
-Descrição;
-Imagem.
+A página `livros_novo.php` realiza o cadastro de livros.
 
-O cadastro utiliza INSERT INTO livros.
+### Campos principais
 
+- Título;
+- Autor;
+- Categoria;
+- Ano de publicação;
+- Quantidade;
+- Status;
+- Descrição;
+- Imagem.
+
+O cadastro utiliza `INSERT INTO livros`.
+
+```php
 $sql = "INSERT INTO livros
         (titulo, autor, categoria, ano_publicacao, quantidade, status, descricao, imagem, data_cadastro, hora_cadastro)
         VALUES
         (:titulo, :autor, :categoria, :ano_publicacao, :quantidade, :status, :descricao, :imagem, CURDATE(), CURTIME())";
+```
 
+---
 
-16. Upload de imagem do livro
-
-
+## 16. Upload de imagem do livro
 
 O upload de imagem usa:
 
+```php
 $_FILES
+```
 
 A pasta de destino das imagens é:
 
+```text
 uploads/livros/
+```
 
 O formulário precisa conter:
 
+```html
 <form method="POST" action="" enctype="multipart/form-data">
+```
 
 O campo de imagem:
 
+```html
 <input type="file" name="imagem" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+```
 
 A imagem é validada e movida com:
 
+```php
 move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoFisicoImagem);
+```
 
 O banco salva apenas o caminho da imagem:
 
+```text
 uploads/livros/livro_20260515_143010_a9f2c1d8.jpg
-17. Listagem de livros
+```
 
-A página livros.php exibe os livros cadastrados.
+---
+
+## 17. Listagem de livros
+
+A página `livros.php` exibe os livros cadastrados.
 
 A consulta principal:
 
+```php
 $sql = "SELECT idlivro, titulo, autor, categoria, ano_publicacao, quantidade, status, imagem, data_cadastro
         FROM livros
         ORDER BY idlivro DESC";
+```
 
-Os dados são exibidos em tabela usando foreach.
+Os dados são exibidos em tabela usando `foreach`.
 
+```php
 foreach ($livros as $livro) {
     echo e($livro['titulo']);
 }
-18. Filtro de livros por categoria
+```
 
-A página livros.php também possui filtro por categoria.
+---
+
+## 18. Filtro de livros por categoria
+
+A página `livros.php` também possui filtro por categoria.
 
 As categorias são carregadas com:
 
+```sql
 SELECT DISTINCT categoria
 FROM livros
 WHERE categoria <> ''
-ORDER BY categoria ASC
+ORDER BY categoria ASC;
+```
 
 Quando uma categoria é selecionada, a consulta usa:
 
+```sql
 WHERE categoria = :categoria
+```
 
 Exemplo:
 
+```php
 $categoriaSelecionada = trim($_GET['categoria'] ?? '');
 
 $sql = "SELECT idlivro, titulo, autor, categoria, ano_publicacao, quantidade, status, imagem, data_cadastro
@@ -489,65 +593,89 @@ $stmt->bindValue(':categoria', $categoriaSelecionada);
 $stmt->execute();
 
 $livros = $stmt->fetchAll();
-19. Página Home com publicações
+```
 
-A página index.php exibe as três últimas publicações do banco.
+---
+
+## 19. Página Home com publicações
+
+A página `index.php` exibe as três últimas publicações do banco.
 
 Consulta:
 
+```php
 $sql = "SELECT idpublicacao, titulo, categoria, resumo, imagem, link_detalhes, data_publicacao
         FROM publicacoes
         WHERE status = 'ativo'
         ORDER BY data_publicacao DESC, idpublicacao DESC
         LIMIT 3";
+```
 
-Os arquivos utilizados na Home:
+Arquivos utilizados na Home:
 
+```text
 includes/Nav.php
 sections/SectionPublicacoesHome.php
 includes/Footer.php
+```
 
+---
 
-### 20. Página de publicações por categoria
+## 20. Página de publicações por categoria
 
-A página locacoes.php exibe publicações organizadas por categoria.
+A página `locacoes.php` exibe publicações organizadas por categoria.
 
 O filtro usa:
 
+```html
 <select name="categoria">
+```
 
 E o PHP captura com:
 
+```php
 $categoriaSelecionada = trim($_GET['categoria'] ?? '');
+```
 
 Quando uma categoria é selecionada:
 
+```php
 $sql = "SELECT idpublicacao, titulo, categoria, resumo, imagem, link_detalhes, data_publicacao
         FROM publicacoes
         WHERE status = 'ativo'
         AND categoria = :categoria
         ORDER BY data_publicacao DESC, idpublicacao DESC";
+```
 
-### 21. Formulários modulares
+---
 
-Os formulários foram separados na pasta forms.
+## 21. Formulários modulares
 
+Os formulários foram separados na pasta `forms`.
+
+```text
 forms/
 ├── FormLogin.php
 ├── FormLivro.php
 ├── FormUsuario.php
 └── FormReserva.php
+```
 
 As páginas principais carregam os formulários com:
 
+```php
 require_once FORMS_ROOT . '/FormLivro.php';
+```
 
 Essa organização evita repetição de código e facilita manutenção.
 
-### 22. Logout administrativo
+---
 
-O arquivo admin_logout.php encerra a sessão do administrador.
+## 22. Logout administrativo
 
+O arquivo `admin_logout.php` encerra a sessão do administrador.
+
+```php
 <?php
 
 require_once __DIR__ . '/config/caminhos.php';
@@ -563,35 +691,107 @@ session_regenerate_id(true);
 
 header('Location: admin_login.php');
 exit;
-### 23. Padrão de segurança aplicado
+```
+
+---
+
+## 23. Padrão de segurança aplicado
 
 O projeto utiliza os seguintes cuidados:
 
-Conexão com PDO;
-prepare() e bindValue() em consultas com dados externos;
-password_hash() para proteger senhas;
-password_verify() para validar login;
-SESSION para autenticação;
-session_regenerate_id(true) após login;
-htmlspecialchars() na exibição de dados;
-Validação de upload com finfo;
-Renomeação de arquivos enviados;
-Proteção de arquivos internos com BASEPATH.
-24. Como executar o projeto
-Baixe ou clone o repositório.
-Coloque a pasta em:
+- Conexão com PDO;
+- `prepare()` e `bindValue()` em consultas com dados externos;
+- `password_hash()` para proteger senhas;
+- `password_verify()` para validar login;
+- `SESSION` para autenticação;
+- `session_regenerate_id(true)` após login;
+- `htmlspecialchars()` na exibição de dados;
+- Validação de upload com `finfo`;
+- Renomeação de arquivos enviados;
+- Proteção de arquivos internos com `BASEPATH`.
+
+---
+
+## 24. Como executar o projeto
+
+1. Baixe ou clone o repositório.
+2. Coloque a pasta em:
+
+```text
 C:\xampp\htdocs\biblioteca_php
-Inicie Apache e MySQL no XAMPP.
-Acesse o phpMyAdmin:
+```
+
+3. Inicie o Apache e o MySQL no XAMPP.
+4. Acesse o phpMyAdmin:
+
+```text
 http://localhost/phpmyadmin
-Crie o banco:
+```
+
+5. Crie o banco:
+
+```sql
 biblioteca_db
-Execute os scripts SQL das tabelas.
-Configure o banco no arquivo:
+```
+
+6. Execute os scripts SQL das tabelas.
+7. Configure o banco no arquivo:
+
+```text
 config/class.conexao.php
-Acesse no navegador:
+```
+
+8. Acesse no navegador:
+
+```text
 http://localhost/biblioteca_php
-Crie o administrador inicial:
+```
+
+9. Crie o administrador inicial:
+
+```text
 http://localhost/biblioteca_php/admin_criar.php
-Acesse o login admin:
+```
+
+10. Acesse o login admin:
+
+```text
 http://localhost/biblioteca_php/admin_login.php
+```
+
+---
+
+## 25. Melhorias futuras
+
+Algumas melhorias que podem ser implementadas:
+
+- Edição de livros;
+- Exclusão de livros;
+- Paginação na listagem;
+- Busca por título ou autor;
+- Cadastro completo de usuários;
+- Controle de reservas;
+- Registro de devolução;
+- Dashboard com gráficos;
+- Permissões por tipo de usuário;
+- Layout responsivo mais avançado;
+- Confirmação com modal antes de excluir;
+- Sistema de mensagens com toast.
+
+---
+
+## 👨‍🏫 Autor
+
+Projeto desenvolvido para fins educacionais por **Professor Eugênio**.
+
+Site:
+
+```text
+https://professoreugenio.com
+```
+
+---
+
+## 📄 Licença
+
+Este projeto é de uso educacional e pode ser adaptado para estudos, aulas e práticas de desenvolvimento web.
