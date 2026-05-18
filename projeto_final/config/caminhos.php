@@ -8,6 +8,7 @@ define('PUBLIC_ROOT', dirname(__DIR__));
 
 define('CONFIG_ROOT', PUBLIC_ROOT . '/config');
 define('CONFIGHOME_ROOT', PUBLIC_ROOT . '/config_home');
+define('INCLUDESDMIN_ROOT', PUBLIC_ROOT . '/includes_admin');
 define('CONFIGFORM_ROOT', PUBLIC_ROOT . '/forms');
 
 define('INCLUDES_ROOT', PUBLIC_ROOT . '/includes');

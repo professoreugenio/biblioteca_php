@@ -1,4 +1,5 @@
 <?php require_once __DIR__ . '/config/caminhos.php' ?>
+<?php require_once CONFIG_ROOT . '/sessao.php'; ?>
 
 <?php
 
@@ -8,7 +9,7 @@ if (!empty($_POST['btloginusuario'])) {
     $senha = $_POST['senha'] ?? '';
 
     try {
-        echo "aqui";
+        
         $sql = "SELECT idusuario, nome, email, senha 
         FROM usuarios 
         WHERE email = :email 

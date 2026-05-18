@@ -49,101 +49,9 @@ require_once CONFIG_ROOT . '/sessao.php';
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-admin fixed-top">
-        <div class="container-fluid px-lg-4">
-
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <span class="brand-icon">
-                    <i class="bi bi-book-half"></i>
-                </span>
-                Locadora Admin
-            </a>
-
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#menuAdmin" aria-controls="menuAdmin" aria-expanded="false"
-                aria-label="Abrir menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="menuAdmin">
-
-                <ul class="navbar-nav ms-lg-4 me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">
-                            <i class="bi bi-speedometer2 me-1"></i>
-                            Dashboard
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="livros.php">
-                            <i class="bi bi-journal-bookmark me-1"></i>
-                            Livros
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="usuarios.php">
-                            <i class="bi bi-people me-1"></i>
-                            Usuários
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="locações.php">
-                            <i class="bi bi-arrow-left-right me-1"></i>
-                            Locações
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="sair.php">
-                            <i class="bi bi-box-arrow-right me-1"></i>
-                            Sair
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- Usuário logado -->
-                <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle d-flex align-items-center gap-2 border-0"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="assets/img/admin.jpg" class="foto-admin" alt="Foto do administrador"
-                            onerror="this.src='https://ui-avatars.com/api/?name=Admin&background=00BB9C&color=fff'">
-                        <span class="d-none d-md-inline fw-semibold">
-                            Admin Eugênio
-                        </span>
-                    </button>
-
-                    <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 mt-2">
-                        <li class="px-3 py-2">
-                            <strong>Admin Eugênio</strong>
-                            <div class="small text-muted">Administrador</div>
-                        </li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item" href="dados-admin.php">
-                                <i class="bi bi-person-gear me-2"></i>
-                                Dados admin
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item text-danger" href="sair.php">
-                                <i class="bi bi-box-arrow-right me-2"></i>
-                                Sair
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </nav>
+<?php
+require_once INCLUDESDMIN_ROOT . '/nav.php';
+?>
 
     <!-- Conteúdo principal -->
     <main class="main-admin">
@@ -401,11 +309,10 @@ require_once CONFIG_ROOT . '/sessao.php';
 
             </section>
 
-            <footer class="footer-admin text-center mt-5">
-                <p class="mb-0">
-                    © 2026 Locadora de Livros — Painel Administrativo
-                </p>
-            </footer>
+            <!-- footer -->
+             <?php
+require_once INCLUDESDMIN_ROOT . '/nav.php';
+?>
 
         </div>
     </main>
