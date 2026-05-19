@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/config/caminhos.php';
 require_once CONFIG_ROOT . '/sessao.php';
+require_once INCLUDESDMIN_ROOT . '/encrypt.php';
 ?>
 <!doctype html>
 <html lang="pt-br" data-bs-theme="light">
@@ -49,9 +50,9 @@ require_once CONFIG_ROOT . '/sessao.php';
 <body>
 
     <!-- Navbar -->
-<?php
-require_once INCLUDESDMIN_ROOT . '/nav.php';
-?>
+    <?php
+    require_once INCLUDESDMIN_ROOT . '/nav.php';
+    ?>
 
     <!-- Conteúdo principal -->
     <main class="main-admin">
@@ -66,9 +67,16 @@ require_once INCLUDESDMIN_ROOT . '/nav.php';
 
                 <h1>Dashboard da Locadora de Livros</h1>
 
-                <p class="mb-4">
-                    Gerencie livros cadastrados, usuários, locações ativas, atrasos e movimentações recentes em um painel
-                    moderno, simples e organizado.
+                <h3>Encryptado</h3>
+                <p>
+                    <?php
+                    $var = "123456&profesoreugeniomls@gmail.com";
+                    echo $enc = encrypt_secure($var, 'e'); ?>
+
+                </p>
+                <h3>Decryptado</h3>
+                <p>
+                    <?php echo encrypt_secure($enc, 'd'); ?>
                 </p>
 
                 <div class="d-flex flex-wrap gap-2 position-relative" style="z-index: 2;">
@@ -310,9 +318,9 @@ require_once INCLUDESDMIN_ROOT . '/nav.php';
             </section>
 
             <!-- footer -->
-             <?php
-require_once INCLUDESDMIN_ROOT . '/nav.php';
-?>
+            <?php
+            require_once INCLUDESDMIN_ROOT . '/nav.php';
+            ?>
 
         </div>
     </main>

@@ -1,4 +1,12 @@
 <?php
+
+if(empty($_SESSION['usuario_logado'])){
+    header('Location: index.php');
+    exit;
+}
+?>
+
+<?php
 $lk=1;
 if(!empty($_GET['lk'])){
 $lk=$_GET['lk'];
@@ -6,13 +14,7 @@ $lk=$_GET['lk'];
 
 ?>
 
-<?php
-if (empty($_SESSION['usuario_logado'])) {
-    header('Location: index.php');
-    exit;
-}
 
-?>
 
 <!-- <?=($lk==1)?'active':''?> -->
 
@@ -100,7 +102,7 @@ if (empty($_SESSION['usuario_logado'])) {
                         </li>
 
                         <li>
-                            <a class="dropdown-item text-danger" href="sair.php">
+                            <a class="dropdown-item text-danger" href="admin_sair.php?lk=5">
                                 <i class="bi bi-box-arrow-right me-2"></i>
                                 Sair
                             </a>
